@@ -13,14 +13,14 @@
 To get the tool clone the git repository:
 
 ```sh
-git clnone git@github.com:Valeriisht/eRNAi_project.git
+git clnone git@github.com:Valeriisht/CodonOpimizatorTools.git
 ```
 Create a conda environment with the necessary packages. 
 Activate it:
 
 ```sh
 conda env create -f environment.yml
-conda activate eRNAi
+conda activate 
 ```
 
 ## Usage
