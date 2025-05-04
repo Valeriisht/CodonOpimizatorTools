@@ -1,0 +1,111 @@
+{
+  "organism": "e_coli",
+  "codon_table": {
+    "F": {
+      "TTT": {"frequency": 24.4, "count": 56791},
+      "TTC": {"frequency": 13.9, "count": 32513}
+    },
+    "L": {
+      "TTA": {"frequency": 17.4, "count": 40627},
+      "TTG": {"frequency": 12.9, "count": 30084},
+      "CTT": {"frequency": 14.5, "count": 33816},
+      "CTC": {"frequency": 9.5, "count": 22074},
+      "CTA": {"frequency": 5.6, "count": 12951},
+      "CTG": {"frequency": 37.4, "count": 87261}
+    },
+    "I": {
+      "ATT": {"frequency": 29.6, "count": 68942},
+      "ATC": {"frequency": 19.4, "count": 45213},
+      "ATA": {"frequency": 13.3, "count": 31065}
+    },
+    "M": {
+      "ATG": {"frequency": 23.7, "count": 55356}
+    },
+    "V": {
+      "GTT": {"frequency": 21.6, "count": 50261},
+      "GTC": {"frequency": 13.1, "count": 30515},
+      "GTA": {"frequency": 13.1, "count": 30461},
+      "GTG": {"frequency": 19.9, "count": 46309}
+    },
+    "S": {
+      "TCT": {"frequency": 13.1, "count": 30494},
+      "TCC": {"frequency": 9.7, "count": 22637},
+      "TCA": {"frequency": 13.1, "count": 30502},
+      "TCG": {"frequency": 8.2, "count": 19071},
+      "AGT": {"frequency": 13.2, "count": 30749},
+      "AGC": {"frequency": 14.3, "count": 33255}
+    },
+    "P": {
+      "CCT": {"frequency": 9.5, "count": 22121},
+      "CCC": {"frequency": 6.2, "count": 14379},
+      "CCA": {"frequency": 9.1, "count": 21237},
+      "CCG": {"frequency": 14.5, "count": 33795}
+    },
+    "T": {
+      "ACT": {"frequency": 13.1, "count": 30518},
+      "ACC": {"frequency": 18.9, "count": 44139},
+      "ACA": {"frequency": 15.1, "count": 35293},
+      "ACG": {"frequency": 13.6, "count": 31794}
+    },
+    "A": {
+      "GCT": {"frequency": 18.9, "count": 44034},
+      "GCC": {"frequency": 21.6, "count": 50411},
+      "GCA": {"frequency": 23.0, "count": 53619},
+      "GCG": {"frequency": 21.1, "count": 49169}
+    },
+    "Y": {
+      "TAT": {"frequency": 21.6, "count": 50400},
+      "TAC": {"frequency": 11.7, "count": 27239}
+    },
+    "H": {
+      "CAT": {"frequency": 12.4, "count": 28919},
+      "CAC": {"frequency": 7.3, "count": 17117}
+    },
+    "Q": {
+      "CAA": {"frequency": 14.4, "count": 33607},
+      "CAG": {"frequency": 26.7, "count": 62329}
+    },
+    "N": {
+      "AAT": {"frequency": 29.3, "count": 68348},
+      "AAC": {"frequency": 20.3, "count": 47233}
+    },
+    "K": {
+      "AAA": {"frequency": 37.2, "count": 86726},
+      "AAG": {"frequency": 15.3, "count": 35652}
+    },
+    "D": {
+      "GAT": {"frequency": 33.7, "count": 78663},
+      "GAC": {"frequency": 17.9, "count": 41619}
+    },
+    "E": {
+      "GAA": {"frequency": 35.1, "count": 81727},
+      "GAG": {"frequency": 19.4, "count": 45154}
+    },
+    "C": {
+      "TGT": {"frequency": 5.9, "count": 13662},
+      "TGC": {"frequency": 5.5, "count": 12777}
+    },
+    "W": {
+      "TGG": {"frequency": 13.4, "count": 31207}
+    },
+    "R": {
+      "CGT": {"frequency": 15.9, "count": 37134},
+      "CGC": {"frequency": 14.0, "count": 32720},
+      "CGA": {"frequency": 4.8, "count": 11216},
+      "CGG": {"frequency": 7.9, "count": 18434},
+      "AGA": {"frequency": 7.1, "count": 16583},
+      "AGG": {"frequency": 4.0, "count": 9238}
+    },
+    "G": {
+      "GGT": {"frequency": 23.7, "count": 55283},
+      "GGC": {"frequency": 20.6, "count": 47962},
+      "GGA": {"frequency": 13.6, "count": 31729},
+      "GGG": {"frequency": 12.3, "count": 28720}
+    },
+    "*": {
+      "TAA": {"frequency": 2.0, "count": 4664},
+      "TAG": {"frequency": 0.3, "count": 751},
+      "TGA": {"frequency": 1.1, "count": 2674}
+    }
+  }
+}
