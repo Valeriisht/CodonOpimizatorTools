@@ -1,6 +1,6 @@
-from .models import Sequence
+from .models.sequence import Sequence, AminoAcidSequence
 from .config import OptimizationConfig
-from .codontable_load import CodonTable_loader
+from .load_codon.CodonTable_loader import load_codon_table
 from .strategies import OptimizationStrategy
 
 
@@ -10,7 +10,7 @@ class CodonOptimizator:
     def __init__(self, params: OptimizationConfig = None):
 
         self.params = params or OptimizationConfig()
-        self.codon_table = CodonTable_loader(self.params.organism)
+        self.codon_table = load_codon_table(self.params.organism)
         self.strategy = OptimizationStrategy(self.params.strategy_name)
 
         if not self.codon_table:
@@ -41,3 +41,6 @@ class CodonOptimizator:
         """Helper to list available organisms (implementation depends on your loader)."""
         # Реализация зависит от вашего CodonTable_loader
         return ["e_coli", "yeast"]
+    
+
+protein = AminoAcidSequence("MAKEPEPTIDE")
