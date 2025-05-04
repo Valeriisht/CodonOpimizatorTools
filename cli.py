@@ -1,1 +1,3 @@
-import argparse 
+import argparse
+
+# реализация работы с командной строкой
