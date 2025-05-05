@@ -24,7 +24,7 @@ logger.add(
 
 
 def main():
-        
+        #  example
         try:
 
             logger.info("Starting main function")
@@ -39,7 +39,7 @@ def main():
             logger.info("Success of CodonOptimizator working")# оптимизация 
             logger.info("Ending main function")
 
-            print(f"Optimization Sequence : {opt_seq.sequence}")
+            print(f"Optimization Sequence : {opt_seq.sequence}, type: {opt_seq.type}")
         
         except Exception as e:
              logger.critical(f"Failed with {e}")

@@ -1,111 +1,109 @@
 {
-    "organism": "yeast",
-    "codon_table": {
-      "F": {
-        "TTT": {"frequency": 26.1, "count": 170666, "relative_adaptiveness": 0.59},
-        "TTC": {"frequency": 18.4, "count": 120510, "relative_adaptiveness": 0.41}
-      },
-      "L": {
-        "TTA": {"frequency": 26.2, "count": 170884, "relative_adaptiveness": 0.28},
-        "TTG": {"frequency": 27.2, "count": 177573, "relative_adaptiveness": 0.29},
-        "CTT": {"frequency": 12.3, "count": 80076, "relative_adaptiveness": 0.13},
-        "CTC": {"frequency": 5.4, "count": 35545, "relative_adaptiveness": 0.06},
-        "CTA": {"frequency": 13.4, "count": 87619, "relative_adaptiveness": 0.14},py
-        "CTG": {"frequency": 10.5, "count": 68494, "relative_adaptiveness": 0.11}
-      },
-      "I": {
-        "ATT": {"frequency": 30.1, "count": 196893, "relative_adaptiveness": 0.46},
-        "ATC": {"frequency": 17.2, "count": 112176, "relative_adaptiveness": 0.26},
-        "ATA": {"frequency": 17.8, "count": 116254, "relative_adaptiveness": 0.27}
-      },
-      "M": {
-        "ATG": {"frequency": 20.9, "count": 136805, "relative_adaptiveness": 1.00}
-      },
-      "V": {
-        "GTT": {"frequency": 22.1, "count": 144243, "relative_adaptiveness": 0.39},
-        "GTC": {"frequency": 11.8, "count": 76947, "relative_adaptiveness": 0.21},
-        "GTA": {"frequency": 11.8, "count": 76927, "relative_adaptiveness": 0.21},
-        "GTG": {"frequency": 10.8, "count": 70337, "relative_adaptiveness": 0.19}
-      },
-      "S": {
-        "TCT": {"frequency": 23.5, "count": 153557, "relative_adaptiveness": 0.26},
-        "TCC": {"frequency": 14.2, "count": 92923, "relative_adaptiveness": 0.16},
-        "TCA": {"frequency": 18.7, "count": 122028, "relative_adaptiveness": 0.21},
-        "TCG": {"frequency": 8.6, "count": 55951, "relative_adaptiveness": 0.10},
-        "AGT": {"frequency": 14.2, "count": 92466, "relative_adaptiveness": 0.16},
-        "AGC": {"frequency": 9.8, "count": 63726, "relative_adaptiveness": 0.11}
-      },
-      "P": {
-        "CCT": {"frequency": 13.5, "count": 88263, "relative_adaptiveness": 0.31},
-        "CCC": {"frequency": 6.8, "count": 44309, "relative_adaptiveness": 0.15},
-        "CCA": {"frequency": 18.3, "count": 119641, "relative_adaptiveness": 0.42},
-        "CCG": {"frequency": 5.3, "count": 34597, "relative_adaptiveness": 0.12}
-      },
-      "T": {
-        "ACT": {"frequency": 20.3, "count": 132522, "relative_adaptiveness": 0.35},
-        "ACC": {"frequency": 12.7, "count": 83207, "relative_adaptiveness": 0.22},
-        "ACA": {"frequency": 17.8, "count": 116084, "relative_adaptiveness": 0.30},
-        "ACG": {"frequency": 8.0, "count": 52045, "relative_adaptiveness": 0.14}
-      },
-      "A": {
-        "GCT": {"frequency": 21.2, "count": 138358, "relative_adaptiveness": 0.38},
-        "GCC": {"frequency": 12.6, "count": 82357, "relative_adaptiveness": 0.22},
-        "GCA": {"frequency": 16.2, "count": 105910, "relative_adaptiveness": 0.29},
-        "GCG": {"frequency": 6.2, "count": 40358, "relative_adaptiveness": 0.11}
-      },
-      "Y": {
-        "TAT": {"frequency": 18.8, "count": 122728, "relative_adaptiveness": 0.56},
-        "TAC": {"frequency": 14.8, "count": 96596, "relative_adaptiveness": 0.44}
-      },
-      "H": {
-        "CAT": {"frequency": 13.6, "count": 89007, "relative_adaptiveness": 0.64},
-        "CAC": {"frequency": 7.8, "count": 50785, "relative_adaptiveness": 0.36}
-      },
-      "Q": {
-        "CAA": {"frequency": 27.3, "count": 178251, "relative_adaptiveness": 0.69},
-        "CAG": {"frequency": 12.1, "count": 79121, "relative_adaptiveness": 0.31}
-      },
-      "N": {
-        "AAT": {"frequency": 35.7, "count": 233124, "relative_adaptiveness": 0.59},
-        "AAC": {"frequency": 24.8, "count": 162199, "relative_adaptiveness": 0.41}
-      },
-      "K": {
-        "AAA": {"frequency": 41.9, "count": 273618, "relative_adaptiveness": 0.58},
-        "AAG": {"frequency": 30.8, "count": 201361, "relative_adaptiveness": 0.42}
-      },
-      "D": {
-        "GAT": {"frequency": 37.6, "count": 245641, "relative_adaptiveness": 0.65},
-        "GAC": {"frequency": 20.2, "count": 132048, "relative_adaptiveness": 0.35}
-      },
-      "E": {
-        "GAA": {"frequency": 45.6, "count": 297944, "relative_adaptiveness": 0.70},
-        "GAG": {"frequency": 19.2, "count": 125717, "relative_adaptiveness": 0.30}
-      },
-      "C": {
-        "TGT": {"frequency": 8.1, "count": 52903, "relative_adaptiveness": 0.63},
-        "TGC": {"frequency": 4.8, "count": 31095, "relative_adaptiveness": 0.37}
-      },
-      "W": {
-        "TGG": {"frequency": 10.4, "count": 67789, "relative_adaptiveness": 1.00}
-      },
-      "R": {
-        "CGT": {"frequency": 6.4, "count": 41791, "relative_adaptiveness": 0.14},
-        "CGC": {"frequency": 2.6, "count": 16993, "relative_adaptiveness": 0.06},
-        "CGA": {"frequency": 3.0, "count": 19562, "relative_adaptiveness": 0.07},
-        "CGG": {"frequency": 1.7, "count": 11351, "relative_adaptiveness": 0.04},
-        "AGA": {"frequency": 21.3, "count": 139081, "relative_adaptiveness": 0.48},
-        "AGG": {"frequency": 9.2, "count": 60289, "relative_adaptiveness": 0.21}
-      },
-      "G": {
-        "GGT": {"frequency": 23.9, "count": 156109, "relative_adaptiveness": 0.47},
-        "GGC": {"frequency": 9.8, "count": 63903, "relative_adaptiveness": 0.19},
-        "GGA": {"frequency": 10.9, "count": 71216, "relative_adaptiveness": 0.22},
-        "GGG": {"frequency": 6.0, "count": 39359, "relative_adaptiveness": 0.12}
-      },
-      "*": {
-        "TAA": {"frequency": 1.1, "count": 6913, "relative_adaptiveness": 0.47},
-        "TAG": {"frequency": 0.5, "count": 3312, "relative_adaptiveness": 0.23},
-        "TGA": {"frequency": 0.7, "count": 4447, "relative_adaptiveness": 0.30}
-      }
+    "F": {
+      "TTT": {"frequency": 26.1, "count": 170666, "relative_adaptiveness": 0.59},
+      "TTC": {"frequency": 18.4, "count": 120510, "relative_adaptiveness": 0.41}
+    },
+    "L": {
+      "TTA": {"frequency": 26.2, "count": 170884, "relative_adaptiveness": 0.28},
+      "TTG": {"frequency": 27.2, "count": 177573, "relative_adaptiveness": 0.29},
+      "CTT": {"frequency": 12.3, "count": 80076, "relative_adaptiveness": 0.13},
+      "CTC": {"frequency": 5.4, "count": 35545, "relative_adaptiveness": 0.06},
+      "CTA": {"frequency": 13.4, "count": 87619, "relative_adaptiveness": 0.14},
+      "CTG": {"frequency": 10.5, "count": 68494, "relative_adaptiveness": 0.11}
+    },
+    "I": {
+      "ATT": {"frequency": 30.1, "count": 196893, "relative_adaptiveness": 0.46},
+      "ATC": {"frequency": 17.2, "count": 112176, "relative_adaptiveness": 0.26},
+      "ATA": {"frequency": 17.8, "count": 116254, "relative_adaptiveness": 0.27}
+    },
+    "M": {
+      "ATG": {"frequency": 20.9, "count": 136805, "relative_adaptiveness": 1.00}
+    },
+    "V": {
+      "GTT": {"frequency": 22.1, "count": 144243, "relative_adaptiveness": 0.39},
+      "GTC": {"frequency": 11.8, "count": 76947, "relative_adaptiveness": 0.21},
+      "GTA": {"frequency": 11.8, "count": 76927, "relative_adaptiveness": 0.21},
+      "GTG": {"frequency": 10.8, "count": 70337, "relative_adaptiveness": 0.19}
+    },
+    "S": {
+      "TCT": {"frequency": 23.5, "count": 153557, "relative_adaptiveness": 0.26},
+      "TCC": {"frequency": 14.2, "count": 92923, "relative_adaptiveness": 0.16},
+      "TCA": {"frequency": 18.7, "count": 122028, "relative_adaptiveness": 0.21},
+      "TCG": {"frequency": 8.6, "count": 55951, "relative_adaptiveness": 0.10},
+      "AGT": {"frequency": 14.2, "count": 92466, "relative_adaptiveness": 0.16},
+      "AGC": {"frequency": 9.8, "count": 63726, "relative_adaptiveness": 0.11}
+    },
+    "P": {
+      "CCT": {"frequency": 13.5, "count": 88263, "relative_adaptiveness": 0.31},
+      "CCC": {"frequency": 6.8, "count": 44309, "relative_adaptiveness": 0.15},
+      "CCA": {"frequency": 18.3, "count": 119641, "relative_adaptiveness": 0.42},
+      "CCG": {"frequency": 5.3, "count": 34597, "relative_adaptiveness": 0.12}
+    },
+    "T": {
+      "ACT": {"frequency": 20.3, "count": 132522, "relative_adaptiveness": 0.35},
+      "ACC": {"frequency": 12.7, "count": 83207, "relative_adaptiveness": 0.22},
+      "ACA": {"frequency": 17.8, "count": 116084, "relative_adaptiveness": 0.30},
+      "ACG": {"frequency": 8.0, "count": 52045, "relative_adaptiveness": 0.14}
+    },
+    "A": {
+      "GCT": {"frequency": 21.2, "count": 138358, "relative_adaptiveness": 0.38},
+      "GCC": {"frequency": 12.6, "count": 82357, "relative_adaptiveness": 0.22},
+      "GCA": {"frequency": 16.2, "count": 105910, "relative_adaptiveness": 0.29},
+      "GCG": {"frequency": 6.2, "count": 40358, "relative_adaptiveness": 0.11}
+    },
+    "Y": {
+      "TAT": {"frequency": 18.8, "count": 122728, "relative_adaptiveness": 0.56},
+      "TAC": {"frequency": 14.8, "count": 96596, "relative_adaptiveness": 0.44}
+    },
+    "H": {
+      "CAT": {"frequency": 13.6, "count": 89007, "relative_adaptiveness": 0.64},
+      "CAC": {"frequency": 7.8, "count": 50785, "relative_adaptiveness": 0.36}
+    },
+    "Q": {
+      "CAA": {"frequency": 27.3, "count": 178251, "relative_adaptiveness": 0.69},
+      "CAG": {"frequency": 12.1, "count": 79121, "relative_adaptiveness": 0.31}
+    },
+    "N": {
+      "AAT": {"frequency": 35.7, "count": 233124, "relative_adaptiveness": 0.59},
+      "AAC": {"frequency": 24.8, "count": 162199, "relative_adaptiveness": 0.41}
+    },
+    "K": {
+      "AAA": {"frequency": 41.9, "count": 273618, "relative_adaptiveness": 0.58},
+      "AAG": {"frequency": 30.8, "count": 201361, "relative_adaptiveness": 0.42}
+    },
+    "D": {
+      "GAT": {"frequency": 37.6, "count": 245641, "relative_adaptiveness": 0.65},
+      "GAC": {"frequency": 20.2, "count": 132048, "relative_adaptiveness": 0.35}
+    },
+    "E": {
+      "GAA": {"frequency": 45.6, "count": 297944, "relative_adaptiveness": 0.70},
+      "GAG": {"frequency": 19.2, "count": 125717, "relative_adaptiveness": 0.30}
+    },
+    "C": {
+      "TGT": {"frequency": 8.1, "count": 52903, "relative_adaptiveness": 0.63},
+      "TGC": {"frequency": 4.8, "count": 31095, "relative_adaptiveness": 0.37}
+    },
+    "W": {
+      "TGG": {"frequency": 10.4, "count": 67789, "relative_adaptiveness": 1.00}
+    },
+    "R": {
+      "CGT": {"frequency": 6.4, "count": 41791, "relative_adaptiveness": 0.14},
+      "CGC": {"frequency": 2.6, "count": 16993, "relative_adaptiveness": 0.06},
+      "CGA": {"frequency": 3.0, "count": 19562, "relative_adaptiveness": 0.07},
+      "CGG": {"frequency": 1.7, "count": 11351, "relative_adaptiveness": 0.04},
+      "AGA": {"frequency": 21.3, "count": 139081, "relative_adaptiveness": 0.48},
+      "AGG": {"frequency": 9.2, "count": 60289, "relative_adaptiveness": 0.21}
+    },
+    "G": {
+      "GGT": {"frequency": 23.9, "count": 156109, "relative_adaptiveness": 0.47},
+      "GGC": {"frequency": 9.8, "count": 63903, "relative_adaptiveness": 0.19},
+      "GGA": {"frequency": 10.9, "count": 71216, "relative_adaptiveness": 0.22},
+      "GGG": {"frequency": 6.0, "count": 39359, "relative_adaptiveness": 0.12}
+    },
+    "*": {
+      "TAA": {"frequency": 1.1, "count": 6913, "relative_adaptiveness": 0.47},
+      "TAG": {"frequency": 0.5, "count": 3312, "relative_adaptiveness": 0.23},
+      "TGA": {"frequency": 0.7, "count": 4447, "relative_adaptiveness": 0.30}
     }
+  
   }

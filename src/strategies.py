@@ -28,17 +28,32 @@ class MaxFrequencyStrategy(BaseOptimizationStrategy):
     def seq_optimize(
         self, sequence: Sequence, codon_table: dict, params: OptimizationConfig
     ) -> Sequence:
-        """Converts protein sequence to DNA using codon table"""
+        """Converts protein sequence to DNA using codon table
+
+        Args:
+            sequence (Sequence): 
+            codon_table (dict): 
+            params (OptimizationConfig): 
+        
+        Raises:
+            ValueError: Invalid AminoAcid
+
+        Returns:
+            Sequence: optimization DNA sequence
+        """
 
         self._validate_sequence(sequence)
         logger.info("Checking Sequence in MaxFrequencyStrategy")
 
         dna_seq = []
         for aa in sequence.sequence:
+            if aa not in codon_table:
+                raise ValueError(f"Invalid AminoAcid {aa}")
+            
             best_codon = max(codon_table[aa].items(), key=lambda x: x[1]["frequency"])[0]
             dna_seq.append(best_codon)
 
-        return Sequence("".join(dna_seq))
+        return Sequence("".join(dna_seq), sequence_type="DNA")
 
 
 class WithGCStrategy(BaseOptimizationStrategy):
@@ -47,7 +62,19 @@ class WithGCStrategy(BaseOptimizationStrategy):
     def seq_optimize(
         self, sequence: Sequence, codon_table: dict, params: OptimizationConfig
     ) -> Sequence:
-        """Converts protein sequence to DNA using codon table"""
+        """Converts protein sequence to DNA using codon table
+
+        Args:
+            sequence (Sequence): 
+            codon_table (dict): 
+            params (OptimizationConfig): 
+
+        Raises:
+            ValueError: Invalid AminoAcid
+
+        Returns:
+            Sequence: optimization DNA sequence
+        """
 
         dna_seq = []
         self._validate_sequence(sequence)
@@ -80,7 +107,19 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
     def seq_optimize(
         self, sequence: Sequence, codon_table: dict, params: OptimizationConfig
     ) -> Sequence:
-        """Converts protein sequence to DNA using codon table"""
+        """Converts protein sequence to DNA using codon table
+
+        Args:
+            sequence (Sequence): 
+            codon_table (dict): 
+            params (OptimizationConfig): 
+
+        Raises:
+            ValueError: Invalid AminoAcid
+
+        Returns:
+            Sequence: optimization DNA sequence
+        """
 
         self._validate_sequence(sequence)
 
@@ -144,6 +183,7 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
 
 def get_optimization_strategy(name: str, sequence: Sequence) -> BaseOptimizationStrategy:
     """Choosing of strategy"""
+
     strategies = {
         "frequency": MaxFrequencyStrategy(),
         "cai": CAIOptimizationStrategy(),
