@@ -33,14 +33,11 @@ class CodonOptimizator:
 
             logger.info("The Sequence is created")
 
-            strategy = get_optimization_strategy(self.params.strategy_name, sequence) 
+            strategy = get_optimization_strategy(self.params.strategy_name, sequence)
 
-            return strategy.seq_optimize( # у каждой стратегии методот должен быть реализован - суть наследования от абстрактного класса
-                sequence=sequence,
-                codon_table=self.codon_table,
-                params=self.params
+            return strategy.seq_optimize(  # у каждой стратегии методот должен быть реализован - суть наследования от абстрактного класса
+                sequence=sequence, codon_table=self.codon_table, params=self.params
             )
- 
 
         except Exception as e:
             raise ValueError(f"CodonOptimizator failed: {str(e)}")
@@ -48,5 +45,3 @@ class CodonOptimizator:
     def _find_available_organisms(self) -> list[str]:
         """Helper to list available organisms (implementation depends on your loader)."""
         return ["e_coli", "yeast"]
-    
-

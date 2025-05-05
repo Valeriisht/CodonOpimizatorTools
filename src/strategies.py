@@ -4,6 +4,7 @@ from .config import OptimizationConfig
 from abc import ABC, abstractmethod
 from loguru import logger
 
+
 class BaseOptimizationStrategy(ABC):
     """Abstract base class for all optimization strategies"""
 
@@ -31,10 +32,10 @@ class MaxFrequencyStrategy(BaseOptimizationStrategy):
         """Converts protein sequence to DNA using codon table
 
         Args:
-            sequence (Sequence): 
-            codon_table (dict): 
-            params (OptimizationConfig): 
-        
+            sequence (Sequence):
+            codon_table (dict):
+            params (OptimizationConfig):
+
         Raises:
             ValueError: Invalid AminoAcid
 
@@ -49,8 +50,10 @@ class MaxFrequencyStrategy(BaseOptimizationStrategy):
         for aa in sequence.sequence:
             if aa not in codon_table:
                 raise ValueError(f"Invalid AminoAcid {aa}")
-            
-            best_codon = max(codon_table[aa].items(), key=lambda x: x[1]["frequency"])[0]
+
+            best_codon = max(codon_table[aa].items(), key=lambda x: x[1]["frequency"])[
+                0
+            ]
             dna_seq.append(best_codon)
 
         return Sequence("".join(dna_seq), sequence_type="DNA")
@@ -65,9 +68,9 @@ class WithGCStrategy(BaseOptimizationStrategy):
         """Converts protein sequence to DNA using codon table
 
         Args:
-            sequence (Sequence): 
-            codon_table (dict): 
-            params (OptimizationConfig): 
+            sequence (Sequence):
+            codon_table (dict):
+            params (OptimizationConfig):
 
         Raises:
             ValueError: Invalid AminoAcid
@@ -75,6 +78,10 @@ class WithGCStrategy(BaseOptimizationStrategy):
         Returns:
             Sequence: optimization DNA sequence
         """
+        logger.warning(
+            "You are using GC strategy which is under development. "
+            "For production use, consider 'frequency' or 'cai' strategies."
+        )
 
         dna_seq = []
         self._validate_sequence(sequence)
@@ -110,9 +117,9 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
         """Converts protein sequence to DNA using codon table
 
         Args:
-            sequence (Sequence): 
-            codon_table (dict): 
-            params (OptimizationConfig): 
+            sequence (Sequence):
+            codon_table (dict):
+            params (OptimizationConfig):
 
         Raises:
             ValueError: Invalid AminoAcid
@@ -134,10 +141,12 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
         for aa in sequence.sequence:
             if aa not in codon_table:
                 raise ValueError(f"Invalid AminoAcid {aa}")
-            
-            codons_for_aa = codon_table[aa] # все кодоны для вот этой аминокислоты
 
-            best_codon = max(codons_for_aa.items(), key=lambda x: weight[x[0]])[0] # нужен ключ
+            codons_for_aa = codon_table[aa]  # все кодоны для вот этой аминокислоты
+
+            best_codon = max(codons_for_aa.items(), key=lambda x: weight[x[0]])[
+                0
+            ]  # нужен ключ
             dna_seq.append(best_codon)
 
         return Sequence("".join(dna_seq), sequence_type="DNA")
@@ -148,8 +157,10 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
         weight_values = {}
 
         # It is  maximum frequency for each amino acid
-        max_freq = {aa: max(freqs.values(), key=lambda x: x["frequency"])["frequency"]
-                     for aa, freqs in codon_table.items()}
+        max_freq = {
+            aa: max(freqs.values(), key=lambda x: x["frequency"])["frequency"]
+            for aa, freqs in codon_table.items()
+        }
 
         for aa, codons in codon_table.items():
             for codon, freq in codons.items():
@@ -172,7 +183,7 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
 #     }
 
 #     def __init__(self, params: OptimizationConfig):
-#         self.strategy = self._get_strategy(params.strategy_name) 
+#         self.strategy = self._get_strategy(params.strategy_name)
 #         # сразу стратегию оптимизации запускаем (может проще через функцию организовать?)
 
 #     def _get_strategy(self, name):
@@ -181,7 +192,10 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
 #             raise ValueError("Invalid strategy name")
 #         return strategy()
 
-def get_optimization_strategy(name: str, sequence: Sequence) -> BaseOptimizationStrategy:
+
+def get_optimization_strategy(
+    name: str, sequence: Sequence
+) -> BaseOptimizationStrategy:
     """Choosing of strategy"""
 
     strategies = {
@@ -189,4 +203,4 @@ def get_optimization_strategy(name: str, sequence: Sequence) -> BaseOptimization
         "cai": CAIOptimizationStrategy(),
     }
 
-    return strategies.get(name, MaxFrequencyStrategy()) # по умолчанию макс оставим 
+    return strategies.get(name, MaxFrequencyStrategy())  # по умолчанию макс оставим

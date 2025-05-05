@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Sequence(ABC):
     """Abstract base class for biological sequences
 
