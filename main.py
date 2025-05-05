@@ -32,14 +32,14 @@ def main():
             optimizer = CodonOptimizator(OptimizationConfig) 
             logger.info("Inizialization of CodonOptimizator") # инизиализация конфига 
 
-            protein = "MAKEPEPTIDE"
+            protein = "GIVEQCCTSICSLYQLENYCN" # инсулин
 
             opt_seq = optimizer.optimize(protein)
 
             logger.info("Success of CodonOptimizator working")# оптимизация 
             logger.info("Ending main function")
 
-            print(f"Optimisation Sequence : {opt_seq.sequence}")
+            print(f"Optimization Sequence : {opt_seq.sequence}")
         
         except Exception as e:
              logger.critical(f"Failed with {e}")

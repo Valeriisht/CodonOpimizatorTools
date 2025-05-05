@@ -35,7 +35,7 @@ class MaxFrequencyStrategy(BaseOptimizationStrategy):
 
         dna_seq = []
         for aa in sequence.sequence:
-            best_codon = max(codon_table["codon_table"][aa].items(), key=lambda x: x[1]["frequency"])[0]
+            best_codon = max(codon_table[aa].items(), key=lambda x: x[1]["frequency"])[0]
             dna_seq.append(best_codon)
 
         return Sequence("".join(dna_seq))
@@ -84,11 +84,21 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
 
         self._validate_sequence(sequence)
 
+        logger.info("Checking Sequence in CAIOptimizationStrategy")
+
         weight = self._calculate_weight(codon_table)
 
+        logger.info("Calculate weight")
+
         dna_seq = []
+
         for aa in sequence.sequence:
-            best_codon = max(codon_table[aa].items(), key=lambda x: weight[x[0]])
+            if aa not in codon_table:
+                raise ValueError(f"Invalid AminoAcid {aa}")
+            
+            codons_for_aa = codon_table[aa] # все кодоны для вот этой аминокислоты
+
+            best_codon = max(codons_for_aa.items(), key=lambda x: weight[x[0]])[0] # нужен ключ
             dna_seq.append(best_codon)
 
         return Sequence("".join(dna_seq), sequence_type="DNA")
@@ -99,11 +109,12 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
         weight_values = {}
 
         # It is  maximum frequency for each amino acid
-        max_freq = {aa: max(freqs.values()) for aa, freqs in codon_table.items()}
+        max_freq = {aa: max(freqs.values(), key=lambda x: x["frequency"])["frequency"]
+                     for aa, freqs in codon_table.items()}
 
         for aa, codons in codon_table.items():
             for codon, freq in codons.items():
-                weight_values[codon] = freq / max_freq[aa]
+                weight_values[codon] = freq["frequency"] / max_freq[aa]
 
         return weight_values
 
