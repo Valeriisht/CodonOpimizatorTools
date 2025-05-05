@@ -2,6 +2,9 @@
 
 - This tool has been developed for the codon-optimization of DNA sequences with the objective of maximising protein expression.
 
+<img align=right src="https://github.com/user-attachments/assets/848412aa-aa6f-4192-aada-86f5a9db135b" alt="# Codon-optimization Tool" width="100"/>
+
+
 ## Content
 - [System specifications](#system-specifications)
 - [Installation](#Installation)
@@ -36,13 +39,16 @@ About architecture of tools you can find out in design.md
 
 For yeast - "protein = "GIVEQCCTSICSLYQLENYCN" 
 
-```2025-05-05 19:15:19.495 | INFO     | __main__:main:30 - Starting main function
+```
+2025-05-05 19:15:19.495 | INFO     | __main__:main:30 - Starting main function
 2025-05-05 19:15:19.495 | INFO     | __main__:main:33 - Inizialization of CodonOptimizator
 2025-05-05 19:15:19.495 | INFO     | src.optimizer:optimize:34 - The Sequence is created
 2025-05-05 19:15:19.495 | INFO     | src.strategies:seq_optimize:46 - Checking Sequence in MaxFrequencyStrategy
 2025-05-05 19:15:19.495 | INFO     | __main__:main:39 - Success of CodonOptimizator working
 2025-05-05 19:15:19.495 | INFO     | __main__:main:40 - Ending main function
-Optimization Sequence : GGTATTGTTGAACAATGTTGTACTTCTATTTGTTCTTTGTATCAATTGGAAAATTATTGTAAT, type: DNA```
+Optimization Sequence : GGTATTGTTGAACAATGTTGTACTTCTATTTGTTCTTTGTATCAATTGGAAAATTATTGTAAT, type: DNA
+
+```
 
 ## Testing
 
@@ -53,5 +59,4 @@ To run it, execute the command:
 
 ```
 python main.py
-
 ```
