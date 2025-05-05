@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from .models import Sequence
 from .config import OptimizationConfig
 from abc import ABC, abstractmethod
-
+from loguru import logger
 
 class BaseOptimizationStrategy(ABC):
     """Abstract base class for all optimization strategies"""
@@ -18,7 +18,7 @@ class BaseOptimizationStrategy(ABC):
         """Validate input amino acid sequence"""
         if not isinstance(sequence, Sequence):
             raise TypeError("Input must be a Sequence object")
-        if not sequence.value:
+        if not sequence.sequence:
             raise ValueError("Sequence cannot be empty")
 
 
@@ -31,10 +31,11 @@ class MaxFrequencyStrategy(BaseOptimizationStrategy):
         """Converts protein sequence to DNA using codon table"""
 
         self._validate_sequence(sequence)
+        logger.info("Checking Sequence in MaxFrequencyStrategy")
 
         dna_seq = []
-        for aa in sequence.value:
-            best_codon = max(codon_table[aa].items(), key=lambda x: x[1])[0]
+        for aa in sequence.sequence:
+            best_codon = max(codon_table["codon_table"][aa].items(), key=lambda x: x[1]["frequency"])[0]
             dna_seq.append(best_codon)
 
         return Sequence("".join(dna_seq))
@@ -51,8 +52,10 @@ class WithGCStrategy(BaseOptimizationStrategy):
         dna_seq = []
         self._validate_sequence(sequence)
 
+        logger.info("Checking Sequence in WithGCStrategy")
+
         optimized_codons = self._find_gc_codon(
-            sequence.value, codon_table, params.gc_target
+            sequence.sequence, codon_table, params.gc_target
         )
 
         if not optimized_codons:
@@ -84,7 +87,7 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
         weight = self._calculate_weight(codon_table)
 
         dna_seq = []
-        for aa in sequence.value:
+        for aa in sequence.sequence:
             best_codon = max(codon_table[aa].items(), key=lambda x: weight[x[0]])
             dna_seq.append(best_codon)
 
@@ -109,21 +112,30 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
 
 # class RepeatStrategy
 
+# упрощю - как-будто излишне - хотя как паттерн проективрования - фабрика - может быть стоило усовершенствовать
+# class OptimizationStrategy():
+#     """Choose strategy"""
 
-class OptimizationStrategy():
-    """Choose strategy"""
+#     STRATEGIES = {
+#         "frequency": MaxFrequencyStrategy,
+#         "cai": CAIOptimizationStrategy,
+#     }
 
-    STRATEGIES = {
-        "frequency": MaxFrequencyStrategy,
-        "cai": CAIOptimizationStrategy,
+#     def __init__(self, params: OptimizationConfig):
+#         self.strategy = self._get_strategy(params.strategy_name) 
+#         # сразу стратегию оптимизации запускаем (может проще через функцию организовать?)
+
+#     def _get_strategy(self, name):
+#         strategy = self.STRATEGIES.get(name) # вытаскиваем стратегию
+#         if not strategy:
+#             raise ValueError("Invalid strategy name")
+#         return strategy()
+
+def get_optimization_strategy(name: str, sequence: Sequence) -> BaseOptimizationStrategy:
+    """Choosing of strategy"""
+    strategies = {
+        "frequency": MaxFrequencyStrategy(),
+        "cai": CAIOptimizationStrategy(),
     }
 
-    def __init__(self, params: OptimizationConfig):
-        self.strategy = self._get_strategy(params.strategy_name) 
-        # сразу стратегию оптимизации запускаем (может проще через функцию организовать?)
-
-    def _get_strategy(self, name):
-        strategy = self.STRATEGIES.get(name) # вытаскиваем стратегию
-        if not strategy:
-            raise ValueError("Invalid strategy name")
-        return strategy()
+    return strategies.get(name, MaxFrequencyStrategy()) # по умолчанию макс оставим 

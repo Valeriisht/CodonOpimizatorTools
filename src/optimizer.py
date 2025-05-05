@@ -1,7 +1,8 @@
 from .models.sequence import Sequence, AminoAcidSequence
 from .config import OptimizationConfig
 from .load_codon.CodonTable_loader import load_codon_table
-from .strategies import OptimizationStrategy
+from .strategies import get_optimization_strategy
+from loguru import logger
 
 
 class CodonOptimizator:
@@ -30,16 +31,22 @@ class CodonOptimizator:
 
             sequence = Sequence(input_sequence)
 
-            return OptimizationStrategy(sequence, self.params)
-            
-            
+            logger.info("The Sequence is created")
+
+            strategy = get_optimization_strategy(self.params.strategy_name, sequence) 
+
+            return strategy.seq_optimize( # у каждой стратегии методот должен быть реализован - суть наследования от абстрактного класса
+                sequence=sequence,
+                codon_table=self.codon_table,
+                params=self.params
+            )
+ 
 
         except Exception as e:
-            raise ValueError(f"Optimization failed: {str(e)}")
+            raise ValueError(f"CodonOptimizator failed: {str(e)}")
 
     def _find_available_organisms(self) -> list[str]:
         """Helper to list available organisms (implementation depends on your loader)."""
         return ["e_coli", "yeast"]
     
 
-protein = AminoAcidSequence("MAKEPEPTIDE")
