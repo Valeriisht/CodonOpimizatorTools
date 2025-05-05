@@ -111,7 +111,7 @@ class CAIOptimizationStrategy(BaseOptimizationStrategy):
 
 
 class OptimizationStrategy():
-    """Choose strayegy"""
+    """Choose strategy"""
 
     STRATEGIES = {
         "frequency": MaxFrequencyStrategy,
@@ -119,11 +119,11 @@ class OptimizationStrategy():
     }
 
     def __init__(self, params: OptimizationConfig):
-        self.strategy = self._get_strategy(params.strategy_name)
-        self.params = params
+        self.strategy = self._get_strategy(params.strategy_name) 
+        # сразу стратегию оптимизации запускаем (может проще через функцию организовать?)
 
-    def _get_strategy(name):
-        strategy = self.STRATEGIES.get(name)
+    def _get_strategy(self, name):
+        strategy = self.STRATEGIES.get(name) # вытаскиваем стратегию
         if not strategy:
             raise ValueError("Invalid strategy name")
         return strategy()

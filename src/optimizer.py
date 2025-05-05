@@ -11,7 +11,6 @@ class CodonOptimizator:
 
         self.params = params or OptimizationConfig()
         self.codon_table = load_codon_table(self.params.organism)
-        self.strategy = OptimizationStrategy(self.params.strategy_name)
 
         if not self.codon_table:
             available = ", ".join(self._find_available_organisms())
@@ -30,16 +29,16 @@ class CodonOptimizator:
         try:
 
             sequence = Sequence(input_sequence)
-            return self.strategy.optimize(
-                sequence=sequence, codon_table=self.codon_table, params=self.params
-            )
+
+            return OptimizationStrategy(sequence, self.params)
+            
+            
 
         except Exception as e:
             raise ValueError(f"Optimization failed: {str(e)}")
 
     def _find_available_organisms(self) -> list[str]:
         """Helper to list available organisms (implementation depends on your loader)."""
-        # Реализация зависит от вашего CodonTable_loader
         return ["e_coli", "yeast"]
     
 
