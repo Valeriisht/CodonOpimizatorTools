@@ -13,6 +13,7 @@ This tool is designed for the codon-optimization of DNA sequences, with the aim 
 
 ### The structure of repo 
 
+```bash
 ├── cli.py
 ├── data
 │   └── codon_table
@@ -36,3 +37,4 @@ This tool is designed for the codon-optimization of DNA sequences, with the aim 
 └── tests
     ├── integration_tests
     └── unit_tests
+```
