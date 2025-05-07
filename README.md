@@ -1,6 +1,6 @@
 ## Codon-optimization Tool
 
-<img align=right src="https://github.com/user-attachments/assets/86306224-642a-4b98-a3b5-045a5f8444ba" alt="# Codon-optimization Tool" width="100"/>
+<img align=right src="https://github.com/user-attachments/assets/78213191-5934-4b27-8612-4f801cffcb37" alt="# Codon-optimization Tool" width="100"/>
 
 - This tool has been developed for the codon-optimization of DNA sequences with the objective of maximising protein expression.
 
