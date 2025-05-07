@@ -1,4 +1,4 @@
-## Codon-optimization Tool
+# Codon-optimization Tool
 
 <img align=right src="https://github.com/user-attachments/assets/86306224-642a-4b98-a3b5-045a5f8444ba" alt="# Codon-optimization Tool" width="100"/>
 
@@ -24,7 +24,13 @@ Activate it: requirements.txt
 
 ## Usage
 
-Parameters in config 
+Parameters in config. In order to start the programme, please specify the necessary parameters in the config file. 
+
+You can start the programme in the following way
+
+``` python main.py ```
+
+The ability to work with the script from the command line (cli.py) will be added soon.
 
 ## Implemented strategies
 
@@ -34,7 +40,7 @@ Parameters in config
 
 ⚠️ GC-strategy in the current version is under active development.
 
-About architecture of tools you can find out in design.md 
+About architecture of tools you can find out in [design.md](https://github.com/Valeriisht/CodonOpimizatorTools/blob/main/docs/design.md))
 
 ## Examples of working
 
@@ -47,6 +53,7 @@ For yeast - "protein = "GIVEQCCTSICSLYQLENYCN"
 2025-05-05 19:15:19.495 | INFO     | src.strategies:seq_optimize:46 - Checking Sequence in MaxFrequencyStrategy
 2025-05-05 19:15:19.495 | INFO     | __main__:main:39 - Success of CodonOptimizator working
 2025-05-05 19:15:19.495 | INFO     | __main__:main:40 - Ending main function
+
 Optimization Sequence : GGTATTGTTGAACAATGTTGTACTTCTATTTGTTCTTTGTATCAATTGGAAAATTATTGTAAT, type: DNA
 
 ```
@@ -54,10 +61,6 @@ Optimization Sequence : GGTATTGTTGAACAATGTTGTACTTCTATTTGTTCTTTGTATCAATTGGAAAATTA
 ## Testing
 
 Three types of tests: unit tests, integration tests, and generation tests cover the project.
-Processsing...
 
-To run it, execute the command:
+Processsing of realization...
 
-```
-python main.py
-```
