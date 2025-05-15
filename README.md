@@ -45,8 +45,8 @@ The ability to work with the script from the command line (cli.py) will be added
 
 ## Implemented strategies
 
-- Frequency strategy (ready) - selection of the most frequent codons
-- CAI strategy (ready) - optimization based on codon adaptation index
+- Frequency strategy (ready) - selection of the most frequent codons (#freguency)
+- CAI strategy (ready) - optimization based on codon adaptation index (#cai)
 - GC strategy (in development) - optimization based on GC-composition
 
 ⚠️ GC-strategy in the current version is under active development.
@@ -55,7 +55,7 @@ About architecture of tool you can find out in [design.md](https://github.com/Va
 
 ## Examples of working
 
-For yeast - "protein = "GIVEQCCTSICSLYQLENYCN" 
+For yeast - "protein = "GIVEQCCTSICSLYQLENYCN"  - it's one of insulin chain (not pre-pro - as example)
 
 ```
 2025-05-05 19:15:19.495 | INFO     | __main__:main:30 - Starting main function
@@ -66,6 +66,20 @@ For yeast - "protein = "GIVEQCCTSICSLYQLENYCN"
 2025-05-05 19:15:19.495 | INFO     | __main__:main:40 - Ending main function
 
 Optimization Sequence : GGTATTGTTGAACAATGTTGTACTTCTATTTGTTCTTTGTATCAATTGGAAAATTATTGTAAT, type: DNA
+```
+
+For *e_coli* - "protein = "GIVEQCCTSICSLYQLENYCN" (cai startegy)
+
+```
+2025-05-15 19:12:22.203 | INFO     | __main__:main:34 - Starting main function
+2025-05-15 19:12:22.234 | INFO     | __main__:main:37 - Inizialization of CodonOptimizator
+2025-05-15 19:12:22.234 | INFO     | src.optimizer:optimize:34 - The Sequence is created
+2025-05-15 19:12:22.235 | INFO     | src.strategies:seq_optimize:133 - Checking Sequence in CAIOptimizationStrategy
+2025-05-15 19:12:22.235 | INFO     | src.strategies:seq_optimize:137 - Calculate weight
+2025-05-15 19:12:22.235 | INFO     | __main__:main:43 - Success of CodonOptimizator working
+2025-05-15 19:12:22.235 | INFO     | __main__:main:44 - Ending main function
+
+Optimization Sequence : ATGGCAAAACTGGAACATATTAGCACCGTTCAGTGGCGTAATGATTATTTTTGTCCGGGT, type: DNA
 ```
 
 ## Testing
