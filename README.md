@@ -68,7 +68,7 @@ For yeast - "protein = "GIVEQCCTSICSLYQLENYCN"  - it's one of insulin chain (not
 Optimization Sequence : GGTATTGTTGAACAATGTTGTACTTCTATTTGTTCTTTGTATCAATTGGAAAATTATTGTAAT, type: DNA
 ```
 
-For *e_coli* - "protein = "GIVEQCCTSICSLYQLENYCN" (cai startegy)
+For *e_coli* - "protein = "MAKLEHISTVQWRNDYFCPG" (cai startegy)
 
 ```
 2025-05-15 19:12:22.203 | INFO     | __main__:main:34 - Starting main function
