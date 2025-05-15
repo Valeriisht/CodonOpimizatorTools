@@ -7,7 +7,6 @@
 
 ## Content
 - [Installation](#Installation)
-- [Start](#Start)
 - [Usage](#Usage)
 - [Implemented strategies](#implemented-strategies)
 - [Examples](#examples-of-working)
@@ -31,26 +30,18 @@ conda activate codon_opt
 pip install -r requirements.txt
 ```
 
-## Start
-
-1) Configure parameters in config.yaml
-2) Run the optimization:
-
-```
-python main.py
-```
-
-*Note: Command line interface (CLI) version coming soon.*
-
 ## Usage
 
 Parameters in config. In order to start the programme, please specify the necessary parameters in the config file. 
 
 You can start the programme in the following way
 
-``` python main.py ```
+``` 
+python main.py
+```
 
 The ability to work with the script from the command line (cli.py) will be added soon.
+(*Note: Command line interface (CLI) version coming soon.*)
 
 ## Implemented strategies
 
