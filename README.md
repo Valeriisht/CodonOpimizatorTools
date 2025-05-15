@@ -51,7 +51,7 @@ The ability to work with the script from the command line (cli.py) will be added
 
 ⚠️ GC-strategy in the current version is under active development.
 
-About architecture of tools you can find out in [design.md](https://github.com/Valeriisht/CodonOpimizatorTools/blob/main/docs/design.md))
+About architecture of tool you can find out in [design.md](https://github.com/Valeriisht/CodonOpimizatorTools/blob/main/docs/design.md)
 
 ## Examples of working
 
